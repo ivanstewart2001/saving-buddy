@@ -8,6 +8,7 @@ class App extends Component {
       <div>
         <Header />
         <Navigation />
+        <h1>Hello it worked!</h1>
       </div>
     )
   }
