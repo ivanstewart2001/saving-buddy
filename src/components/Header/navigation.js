@@ -6,6 +6,12 @@ import Calendar from '../Calendar/calendar'
 import Expenses from '../Expenses/expenses'
 import MyDashboard from '../MyDashboard/myDashboard'
 import Tips from '../Tips/tips'
+import AddBucket from '../Buckets/addBucket'
+import UpdateBucket from '../Buckets/updateBucket'
+import AddExpense from '../Expenses/addExpense'
+import UpdateExpense from '../Expenses/updateExpense'
+import AddBill from '../Bills/addBill'
+import UpdateBill from '../Bills/updateBill'
 
 class Header extends Component {
     render() {
@@ -18,6 +24,12 @@ class Header extends Component {
                     <Route path="/calendar" exact component={Calendar} />
                     <Route path="/expenses" exact component={Expenses} />
                     <Route path="/tips" exact component={Tips} />
+                    <Route path="/addBucket" exact component={AddBucket} />
+                    <Route path="/updateBucket" exact component={UpdateBucket} />
+                    <Route path="/addExpense" exact component={AddExpense} />
+                    <Route path="/updateExpense" exact component={UpdateExpense} />
+                    <Route path="/addBill" exact component={AddBill} />
+                    <Route path="/updateBill" exact component={UpdateBill} />
                     <Redirect to="/myDashboard" />
                 </Switch>           
             </BrowserRouter>
