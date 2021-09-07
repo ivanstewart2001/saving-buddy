@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-
+#hi
 @app.route('/backend_to_frontend', methods=['GET'])
 def backend_to_frontend():
    return {
