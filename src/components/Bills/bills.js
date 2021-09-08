@@ -6,7 +6,7 @@ class  Bills extends Component {
         "id":1,
         "date": "Jan 1, 2021",
         "title": "Bill1",
-        "amount": 163,
+        "amount": 158,
         "category": "rent",
         "paid": true
     }, {
