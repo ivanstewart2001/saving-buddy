@@ -19,7 +19,7 @@ export class EditExpensePage extends React.Component {
       <div>
         <div>
           <div>
-            <h1>Edit Expense</h1>
+            <h1>Update Expense</h1>
           </div>
         </div>
         <div>

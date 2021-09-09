@@ -6,10 +6,10 @@ import numeral from 'numeral';
 const ExpenseItem = ({ id, title, amount, endDate, category }) => (
     <Link to={`/updateExpense/${id}`}>
       <div style={{display:'inline-flex'}}>
-        <span>{moment(endDate).format('MMMM Do, YYYY')}</span>
-        <h3>{title}</h3>
-        <h3>{numeral(amount / 100).format('$0,0.00')}</h3>
-        <h3>{category}</h3>
+        <p>{moment(endDate).format('MMMM Do, YYYY')}</p>
+        <p>{title}</p>
+        <p>{numeral(amount / 100).format('$0,0.00')}</p>
+        <p>{category}</p>
       </div>
     </Link>
 );
