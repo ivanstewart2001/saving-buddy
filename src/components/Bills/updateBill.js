@@ -1,38 +1,46 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import BillForm from './billForm';
+import { startEditBill, startRemoveBill } from '../../Actions/bills'
 
-class UpdateBill extends Component {
-  render(){
+export class EditBillPage extends Component {
+  onSubmit = (bill) => {
+    this.props.startEditBill(this.props.bill.id, bill);
+    this.props.history.push('/bills');
+  }
+
+  onRemove = () => {
+    this.props.startRemoveBill({ id: this.props.bill.id });
+    this.props.history.push('/bills');
+  }
+
+  render() {
     return (
       <div>
-        <h1>Update Bill</h1>
-        <form>
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title"/>
-          <br />
-          <label for="startDate"> Start Date:</label>
-          <input type="date" id="startDate" name="startDate"/>
-          <br />
-          <label for="endDate">End Date:</label>
-          <input type="date" id="endDate" name="endDate"/>
-          <br />
-          <label for="amount">Amount:</label>
-          <input type="number" id="amount" name="amount"/>
-          <br />
-          <label for="frequency">Frequency:</label>
-          <select name="frequency" id="frequency">
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="biWeekly">Bi Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-          <br />
-          <label for="notes">Notes:</label>
-          <textarea type="text" id="notes" name="notes"/>
-          <br />
-        </form>
+        <div>
+          <div>
+            <h1>Edit Bill</h1>
+          </div>
+        </div>
+        <div>
+          <BillForm
+            bill={this.props.bill}
+            onSubmit={this.onSubmit}
+          />
+          <button onClick={this.onRemove}>Remove Bill</button>
+        </div>
       </div>
-    )
+    );
   }
-}
+};
 
-export default UpdateBill
+const mapStateToProps = (state, props) => ({
+  bill: state.bills.find((bill) => bill.id === props.match.params.id)
+});
+
+const mapDispatchToProps = (dispatch, props) => ({
+  startEditBill: (id, bill) => dispatch(startEditBill(id, bill)),
+  startRemoveBill: (data) => dispatch(startRemoveBill(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditBillPage);

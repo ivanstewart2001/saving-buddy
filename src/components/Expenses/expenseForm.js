@@ -4,7 +4,7 @@ import 'react-dates/initialize'
 import { SingleDatePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
 
-class AddExpense extends Component {
+class ExpenseForm extends Component {
   constructor (props) {
     super(props)
 
@@ -19,6 +19,7 @@ class AddExpense extends Component {
       calanderFocused: false,
     }
   }
+  
   onTitleChange = (e) => {
     const title = e.target.value
     this.setState(() => ({ title: title }))
@@ -117,4 +118,4 @@ class AddExpense extends Component {
   }
 }
 
-export default AddExpense
+export default ExpenseForm
