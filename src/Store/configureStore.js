@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import authReducer from '../Reducers/auth'
 import expensesReducer from '../Reducers/expenses'
 import billsReducer from '../Reducers/bills'
+import bucketsReducer from '../Reducers/buckets'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -10,6 +11,7 @@ export default () => {
     const store = createStore(
         combineReducers({
             bills: billsReducer,
+            buckets: bucketsReducer,
             expenses: expensesReducer,
             auth: authReducer
         }),

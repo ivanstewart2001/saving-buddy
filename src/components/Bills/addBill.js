@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BillForm from './billForm';
 import { startAddBill } from '../../Actions/bills';
 
-export class AddBillPage extends React.Component {
+export class AddBillPage extends Component {
   onSubmit = (bill) => {
     this.props.startAddBill(bill);
     this.props.history.push('/bills');

@@ -5,13 +5,13 @@ import { startEditBill, startRemoveBill } from '../../Actions/bills'
 
 export class EditBillPage extends Component {
   onSubmit = (bill) => {
-    this.props.startEditBill(this.props.bill.id, bill);
-    this.props.history.push('/bills');
+    this.props.startEditBill(this.props.bill.id, bill)
+    this.props.history.push('/bills')
   }
 
   onRemove = () => {
-    this.props.startRemoveBill({ id: this.props.bill.id });
-    this.props.history.push('/bills');
+    this.props.startRemoveBill({ id: this.props.bill.id })
+    this.props.history.push('/bills')
   }
 
   render() {
