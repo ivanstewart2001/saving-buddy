@@ -4,31 +4,45 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const Header = ({ startLogout }) => (
-    <header>
-      <div>
-        <div style={{display: 'inline-flex'}}>
-          <Link to="/myDashboard">
-            <h1>Saving Buddy</h1>
-          </Link>
-          <Link to="/bills">
-            <h4>Bills</h4>
-          </Link>
-          <Link to="/buckets">
-            <h4>Buckets</h4>
-          </Link>
-          <Link to="/calendar">
-            <h4>Calendar</h4>
-          </Link>
-          <Link to="/expenses">
-            <h4>Expenses</h4>
-          </Link>
-          <Link to="/tips">
-            <h4>Tips</h4>
-          </Link>
-          <button onClick={startLogout}>Logout</button>
-        </div>
-      </div>
-    </header>
+    <table style={{borderCollapse:'separate', borderSpacing:'0 15px', width:'100%'}}>
+      <tbody>
+        <tr>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <Link to="/myDashboard">
+                <h1>Saving Buddy</h1>
+              </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <Link to="/bills">
+                <h1>Bills</h1>
+              </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+            <Link to="/buckets">
+              <h1>Buckets</h1>
+            </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <Link to="/calendar">
+                <h1>Calendar</h1>
+              </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <Link to="/expenses">
+                <h1>Expenses</h1>
+              </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <Link to="/tips">
+                <h1>Tips</h1>
+              </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <button onClick={startLogout} style={{width:'200px', height:'50px'}}>Logout</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
 );
 
 const mapDispatchToProps = (dispatch) => ({
