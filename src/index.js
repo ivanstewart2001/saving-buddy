@@ -12,7 +12,6 @@ import { firebase } from './Firebase/firebase';
 import LoadingPage from './assets/loadingPage'
 import configureStore from './Store/configureStore';
 import AppRouter, { history } from './components/Routes/AppRouter';
-import './Styles/styles.scss';
 
 const store = configureStore()
 
