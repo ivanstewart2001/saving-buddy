@@ -5,11 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { login, logout } from './Actions/auth';
 import { startSetExpenses } from './Actions/expenses';
+import { startSetBills } from './Actions/bills';
+import { startSetBuckets } from './Actions/buckets'
 import './Firebase/firebase'
 import { firebase } from './Firebase/firebase';
 import LoadingPage from './assets/loadingPage'
 import configureStore from './Store/configureStore';
 import AppRouter, { history } from './components/Routes/AppRouter';
+import './Styles/styles.scss';
 
 const store = configureStore()
 
@@ -33,6 +36,8 @@ ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid))
+    store.dispatch(startSetBills())
+    store.dispatch(startSetBuckets())
     store.dispatch(startSetExpenses()).then(() => {
       renderApp()
       if (history.location.pathname === '/') {

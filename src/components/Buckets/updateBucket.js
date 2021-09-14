@@ -1,38 +1,46 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import BucketForm from './bucketForm';
+import { startEditBucket, startRemoveBucket } from '../../Actions/buckets'
 
-class UpdateBucket extends Component {
-  render(){
+export class EditBucketPage extends Component {
+  onSubmit = (bucket) => {
+    this.props.startEditBucket(this.props.bucket.id, bucket);
+    this.props.history.push('/buckets');
+  }
+
+  onRemove = () => {
+    this.props.startRemoveBucket({ id: this.props.bucket.id });
+    this.props.history.push('/buckets');
+  }
+
+  render() {
     return (
       <div>
-        <h1>Update Bucket</h1>
-        <form>
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title"/>
-          <br />
-          <label for="startDate"> Start Date:</label>
-          <input type="date" id="startDate" name="startDate"/>
-          <br />
-          <label for="endDate">End Date:</label>
-          <input type="date" id="endDate" name="endDate"/>
-          <br />
-          <label for="amount">Amount:</label>
-          <input type="number" id="amount" name="amount"/>
-          <br />
-          <label for="frequency">Frequency:</label>
-          <select name="frequency" id="frequency">
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="biWeekly">Bi Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-          <br />
-          <label for="notes">Notes:</label>
-          <textarea type="text" id="notes" name="notes"/>
-          <br />
-        </form>
+        <div>
+          <div>
+            <h1>Edit Bucket</h1>
+          </div>
+        </div>
+        <div>
+          <BucketForm
+            bucket={this.props.bucket}
+            onSubmit={this.onSubmit}
+          />
+          <button onClick={this.onRemove}>Remove Bucket</button>
+        </div>
       </div>
-    )
+    );
   }
-}
+};
 
-export default UpdateBucket
+const mapStateToProps = (state, props) => ({
+  bucket: state.buckets.find((bucket) => bucket.id === props.match.params.id)
+});
+
+const mapDispatchToProps = (dispatch, props) => ({
+  startEditBucket: (id, bucket) => dispatch(startEditBucket(id, bucket)),
+  startRemoveBucket: (data) => dispatch(startRemoveBucket(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditBucketPage);
