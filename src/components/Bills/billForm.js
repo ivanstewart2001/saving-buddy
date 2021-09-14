@@ -112,6 +112,7 @@ class BillForm extends Component {
                 <br />
                 <label for="frequency">Payment Frequency:</label>
                 <select name="frequency" id="frequency" onChange={this.onFrequencyChange} value={this.state.frequency}>
+                    <option value="none">None</option>
                     <option value="weekly">Weekly</option>
                     <option value="biWeekly">Bi Weekly</option>
                     <option value="monthly">Monthly</option>
@@ -119,6 +120,7 @@ class BillForm extends Component {
                 <br />
                 <label for="reminderFrequency">Reminder Frequency:</label>
                 <select name="reminderFrequency" id="reminderFrequency" onChange={this.onReminderFrequencyChange} value={this.state.reminderFrequency}>
+                    <option value="none">None</option>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
                     <option value="biWeekly">Bi Weekly</option>
@@ -127,6 +129,7 @@ class BillForm extends Component {
                 <br />
                 <label for="category">Category:</label>
                 <select name="category" id="category" onChange={this.onCategoryChange} value={this.state.category}>
+                    <option value="none">None</option>
                     <option value="Rent/Mortgage">Rent/Mortgage</option>
                     <option value="Utilities">Utilities</option>
                     <option value="Subscriptions">Subscriptions</option>

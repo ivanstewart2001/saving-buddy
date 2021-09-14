@@ -28,6 +28,7 @@ class Bills extends Component {
             <div>
                 <h1>Bills</h1>
                 <h3>Month:</h3>
+                <p>If a Bill is marked as Paid and is not set to recur then it will be deleted 7 days after Bill Due Date</p>
                 <BillList />
                 {
                     this.props.bills.length > 0 ? 
