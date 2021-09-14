@@ -13,6 +13,7 @@ class BillForm extends Component {
           dueDate : props.bill ? moment(props.bill.dueDate) : '',
           amount: props.bill ? (props.bill.amount / 100).toString() : '',
           frequency: props.bill ? props.bill.frequency : '',
+          reminderFrequency: props.bill ? props.bill.reminderFrequency : '',
           category: props.bill ? props.bill.category : '',
           notes: props.bill ? props.bill.notes : '',
           paid: props.bill ? props.bill.paid : 'no',
@@ -30,11 +31,6 @@ class BillForm extends Component {
         const paid = e.target.value
         this.setState(() => ({ paid: paid }))
     }
-    
-    onCategoryChange = (e) => {
-        const category = e.target.value
-        this.setState(() => ({ category: category }))
-    }
 
     onFocusChange = ({ focused }) => {
         this.setState(() => ({ calanderFocused: focused }))
@@ -48,6 +44,16 @@ class BillForm extends Component {
     onFrequencyChange = (e) => {
         const frequency = e.target.value
         this.setState(() => ({ frequency: frequency }))
+    }
+
+    onReminderFrequencyChange = (e) => {
+        const reminderFrequency = e.target.value
+        this.setState(() => ({ reminderFrequency: reminderFrequency }))
+    }
+
+    onCategoryChange = (e) => {
+        const category = e.target.value
+        this.setState(() => ({ category: category }))
     }
 
     onAmountChange = (e) => {
@@ -75,6 +81,7 @@ class BillForm extends Component {
                 dueDate : this.state.dueDate._d.toDateString(),
                 amount: parseFloat(this.state.amount, 10) * 100,
                 frequency: this.state.frequency,
+                reminderFrequency: this.state.reminderFrequency,
                 category: this.state.category,
                 paid: this.state.paid,
                 notes: this.state.notes
@@ -103,12 +110,28 @@ class BillForm extends Component {
                 <label for="amount">Amount:</label>
                 <input type="number" id="amount" name="amount" onChange={this.onAmountChange} value={this.state.amount}/>
                 <br />
-                <label for="frequency">Frequency:</label>
+                <label for="frequency">Payment Frequency:</label>
                 <select name="frequency" id="frequency" onChange={this.onFrequencyChange} value={this.state.frequency}>
+                    <option value="weekly">Weekly</option>
+                    <option value="biWeekly">Bi Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+                <br />
+                <label for="reminderFrequency">Reminder Frequency:</label>
+                <select name="reminderFrequency" id="reminderFrequency" onChange={this.onReminderFrequencyChange} value={this.state.reminderFrequency}>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
                     <option value="biWeekly">Bi Weekly</option>
                     <option value="monthly">Monthly</option>
+                </select>
+                <br />
+                <label for="category">Category:</label>
+                <select name="category" id="category" onChange={this.onCategoryChange} value={this.state.category}>
+                    <option value="Rent/Mortgage">Rent/Mortgage</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Subscriptions">Subscriptions</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Other">Other</option>
                 </select>
                 <br />
                 <label for="paid">Paid:</label>

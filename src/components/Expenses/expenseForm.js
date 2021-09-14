@@ -12,7 +12,6 @@ class ExpenseForm extends Component {
       title : props.expense ? props.expense.title : '',
       date : props.expense ? moment(props.expense.date) : '',
       amount: props.expense ? (props.expense.amount / 100).toString() : '',
-      frequency: props.expense ? props.expense.frequency : '',
       category: props.expense ? props.expense.category : '',
       notes: props.expense ? props.expense.notes : '',
       error: '',
@@ -25,11 +24,6 @@ class ExpenseForm extends Component {
     this.setState(() => ({ title: title }))
   }
 
-  onCategoryChange = (e) => {
-    const category = e.target.value
-    this.setState(() => ({ category: category }))
-  }
-
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calanderFocused: focused }))
   }
@@ -39,9 +33,9 @@ class ExpenseForm extends Component {
     this.setState(() => ({ notes: notes }))
   }
 
-  onFrequencyChange = (e) => {
-    const frequency = e.target.value
-    this.setState(() => ({ frequency: frequency }))
+  onCategoryChange = (e) => {
+    const category = e.target.value
+    this.setState(() => ({ category: category }))
   }
 
   onAmountChange = (e) => {
@@ -68,7 +62,6 @@ class ExpenseForm extends Component {
             title: this.state.title,
             date : this.state.date._d.toDateString(),
             amount: parseFloat(this.state.amount, 10) * 100,
-            frequency: this.state.frequency,
             category: this.state.category,
             notes: this.state.notes
         })
@@ -96,16 +89,17 @@ class ExpenseForm extends Component {
           <label for="amount">Amount:</label>
           <input type="number" id="amount" name="amount" value={this.state.amount} onChange={this.onAmountChange}/>
           <br />
-          <label for="frequency">Frequency:</label>
-          <select name="frequency" id="frequency" value={this.state.frequency} onChange={this.onFrequencyChange}>
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="biWeekly">Bi Weekly</option>
-            <option value="monthly">Monthly</option>
-          </select>
-          <br />
           <label for="category">Category:</label>
-          <input type="text" id="category" name="category" value={this.state.category} onChange={this.onCategoryChange}/>
+          <select name="category" id="category" value={this.state.category} onChange={this.onCategoryChange}>
+            <option value="Food">Food</option>
+            <option value="Groceries">Groceries</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Auto">Auto</option>
+            <option value="Transport">Transport</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Health/Fitness">Health/Fitness</option>
+            <option value="Other">Other</option>
+          </select>
           <br />
           <label for="notes">Notes:</label>
           <textarea type="text" id="notes" name="notes" value={this.state.notes} onChange={this.onNotesChange}/>

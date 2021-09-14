@@ -14,6 +14,7 @@ class BucketForm extends Component {
           endDate : props.bucket ? moment(props.bucket.endDate) : '',
           goalAmount: props.bucket ? (props.bucket.goalAmount / 100).toString() : '',
           savedAmount: props.bucket ? (props.bucket.savedAmount / 100).toString() : '',
+          reminderFrequency: props.bucket ? props.bucket.reminderFrequency : '',
           notes: props.bucket ? props.bucket.notes : '',
           error: '',
           startCalanderFocused: false,
@@ -65,6 +66,11 @@ class BucketForm extends Component {
         }
     }
 
+    onReminderFrequencyChange = (e) => {
+        const reminderFrequency = e.target.value
+        this.setState(() => ({ reminderFrequency: reminderFrequency }))
+    }
+
     onSubmit = (e) => {
         e.preventDefault()
     
@@ -78,6 +84,7 @@ class BucketForm extends Component {
                 endDate : this.state.endDate._d.toDateString(),
                 goalAmount: parseFloat(this.state.goalAmount, 10) * 100,
                 savedAmount: parseFloat(this.state.savedAmount, 10) * 100,
+                reminderFrequency: this.state.reminderFrequency,
                 notes: this.state.notes
             })
         }
@@ -116,6 +123,13 @@ class BucketForm extends Component {
                     <label for="savedAmount">Saved Amount:</label>
                     <input type="number" id="savedAmount" name="savedAmount" onChange={this.onSavedAmountChange} value={this.state.savedAmount}/>
                     <br />
+                    <label for="reminderFrequency">Reminder Frequency:</label>
+                    <select name="reminderFrequency" id="reminderFrequency" onChange={this.onReminderFrequencyChange} value={this.state.reminderFrequency}>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biWeekly">Bi Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
                     <br />
                     <label for="notes">Notes:</label>
                     <textarea type="text" id="notes" name="notes" onChange={this.onNotesChange} value={this.state.notes}/>

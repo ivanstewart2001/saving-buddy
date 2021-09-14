@@ -15,12 +15,13 @@ export const startAddBill = (billData = {}) => {
             dueDate = '',
             amount = 0,
             frequency = '',
+            reminderFrequency = '',
             category = '',
             paid = '',
             notes = ''
         } = billData;
 
-        const bill = { title, dueDate, amount, frequency, category, paid, notes };
+        const bill = { title, dueDate, amount, frequency, reminderFrequency, category, paid, notes };
 
         return database.ref(`users/${uid}/bills`).push(bill).then((ref) => {
             dispatch(addBill({

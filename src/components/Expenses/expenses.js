@@ -17,7 +17,7 @@ class Expenses extends Component {
                 <ExpenseList />
                 {
                     this.props.expenses.length > 0 ?
-                        <h3>Total: ${this.currentTotalExpenses}</h3>
+                        <h3>Total: ${this.currentTotalExpenses/100}</h3>
                     :
                         <p></p>
                 }
