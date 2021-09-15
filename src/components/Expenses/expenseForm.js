@@ -91,6 +91,7 @@ class ExpenseForm extends Component {
           <br />
           <label for="category">Category:</label>
           <select name="category" id="category" value={this.state.category} onChange={this.onCategoryChange}>
+            <option value="none">None</option>
             <option value="Food">Food</option>
             <option value="Groceries">Groceries</option>
             <option value="Shopping">Shopping</option>

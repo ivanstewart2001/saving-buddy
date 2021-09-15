@@ -52,7 +52,7 @@ class BucketModal extends Component {
       let bucket = Object.assign({}, this.bucket)
       const newBucketTotal = ((Number(this.state.tempAddAmount) + (Number(this.state.savedAmount)/100))*100)
       this.setState(() => ({savedAmount:newBucketTotal}))
-      bucket.savedAmount = newBucketTotal.toString()
+      bucket.savedAmount = newBucketTotal
       this.props.startEditBucket(this.state.id, bucket);
     }
   }
@@ -70,7 +70,7 @@ class BucketModal extends Component {
       let bucket = Object.assign({}, this.bucket)
       const newBucketTotal = ((Number(this.state.savedAmount)/100) - (Number(this.state.tempRemoveAmount))) * 100
       this.setState(() => ({savedAmount:newBucketTotal}))
-      bucket.savedAmount = newBucketTotal.toString()
+      bucket.savedAmount = newBucketTotal
       this.props.startEditBucket(this.state.id, bucket);
     }
   }
