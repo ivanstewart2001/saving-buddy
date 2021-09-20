@@ -16,31 +16,65 @@ import {
 } from '@devexpress/dx-react-scheduler-material-ui'
 import moment from "moment"
 
-
 class Calendar extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          data: this.format(),
+          currentDate: moment().format()
+        }
+    }
+
+    format = () => {
+        const x = []
+        let count = 0
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        this.props.bills.map((bill) => {
+            const splitted = bill.dueDate.split(' ')
+            const year = splitted[3]
+            const month = months.indexOf(splitted[1])
+            const day = splitted[2]
+            x.push({id:count, title: bill.title, startDate: new Date(year, month, day, 8,30), endDate: new Date(year, month, day, 11, 30), ownerId: 1})
+            count += 1
+        })
+
+        this.props.buckets.map((bucket) => {
+            const splitted = bucket.endDate.split(' ')
+            const year = splitted[3]
+            const month = months.indexOf(splitted[1])
+            const day = splitted[2]
+            x.push({id:count, title: bucket.title, startDate: new Date(year, month, day, 11,45), endDate: new Date(year, month, day, 12, 0), ownerId: 2}) 
+            count += 1 
+        })
+
+        return x
+    }
+
     render(){
-        const currentDate = moment().format()
-        console.log(this.props.Bills)
-        console.log(this.props.Buckets)
+        // const currentDate = moment().format()
+        const { data, currentDate, locale } = this.state;
+        console.log(data)
+
         return(
             <div>
                 <h3>Calendar Page</h3>
                 <Paper>
                     <Scheduler
-                   // data={data}
+                        data={data}
                    // height={660}
                     >
                     <ViewState
-                        currentDate={currentDate}
+                        defaultCurrentDate={currentDate}
                         onCurrentDateChange={this.onCurrentDateChange}
                     />
                     <DayView
-                        startDayHour={9}
-                        endDayHour={18}
+                        startDayHour={0}
+                        endDayHour={25}
                      />
                     <WeekView
-                        startDayHour={9}
-                        endDayHour={18}
+                        startDayHour={0}
+                        endDayHour={24}
                     />
                     <MonthView
                         startDayHour={9}
@@ -49,7 +83,6 @@ class Calendar extends Component {
                     <Appointments />
                     <Toolbar/>
                     <ViewSwitcher/>
-                    <TodayButton/>
                     <DateNavigator/>
                     </Scheduler>
                 </Paper>
@@ -60,7 +93,7 @@ class Calendar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-       Buckets : state.buckets, Bills: state.bills
+       buckets : state.buckets, bills: state.bills
     }
 }
 
