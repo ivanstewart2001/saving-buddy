@@ -33,6 +33,11 @@ export const Header = ({ startLogout }) => (
               </Link>
             </td>
             <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
+              <Link to="/income">
+                <h1>Income</h1>
+              </Link>
+            </td>
+            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
               <Link to="/tips">
                 <h1>Tips</h1>
               </Link>

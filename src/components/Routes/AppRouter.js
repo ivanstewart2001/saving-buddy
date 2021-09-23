@@ -16,6 +16,9 @@ import createHistory from 'history/createBrowserHistory';
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import LoginPage from '../Authentication/loginPage'
+import AddIncome from '../Income/addIncome'
+import UpdateIncome from '../Income/updateIncome'
+import Income from '../Income/income'
 
 export const history = createHistory();
 
@@ -36,6 +39,9 @@ const AppRouter = () => (
             <PrivateRoute path="/updateExpense/:id" exact component={UpdateExpense} />
             <PrivateRoute path="/addBill" exact component={AddBill} />
             <PrivateRoute path="/updateBill/:id" exact component={UpdateBill} />
+            <PrivateRoute path="/addIncome" exact component={AddIncome} />
+            <PrivateRoute path="/updateIncome/:id" exact component={UpdateIncome} />
+            <PrivateRoute path="/income" exact component={Income} />
             <Redirect to="/myDashboard" />
         </Switch> 
       </div>
