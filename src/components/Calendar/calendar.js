@@ -52,9 +52,7 @@ class Calendar extends Component {
     }
 
     render(){
-        // const currentDate = moment().format()
-        const { data, currentDate, locale } = this.state;
-        console.log(data)
+        const { data, currentDate } = this.state;
 
         return(
             <div>
