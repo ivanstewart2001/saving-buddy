@@ -7,7 +7,7 @@ import 'react-dates/lib/css/_datepicker.css'
 class BillForm extends Component {
     constructor (props) {
         super(props)
-    
+
         this.state = {
           title : props.bill ? props.bill.title : '',
           dueDate : props.bill ? moment(props.bill.dueDate) : '',
@@ -84,7 +84,8 @@ class BillForm extends Component {
                 reminderFrequency: this.state.reminderFrequency,
                 category: this.state.category,
                 paid: this.state.paid,
-                notes: this.state.notes
+                notes: this.state.notes,
+                createdAt: moment().format().slice(0,10)
             })
         }
     }

@@ -85,7 +85,8 @@ class BucketForm extends Component {
                 goalAmount: parseFloat(this.state.goalAmount, 10) * 100,
                 savedAmount: parseFloat(this.state.savedAmount, 10) * 100,
                 reminderFrequency: this.state.reminderFrequency,
-                notes: this.state.notes
+                notes: this.state.notes,
+                createdAt: moment().format().slice(0,10)
             })
         }
     }

@@ -17,10 +17,11 @@ export const startAddBucket = (bucketData = {}) => {
             goalAmount = 0,
             savedAmount = 0,
             reminderFrequency = '',
-            notes = ''
+            notes = '',
+            createdAt = ''
         } = bucketData;
 
-        const bucket = { title, startDate, endDate, goalAmount, savedAmount, reminderFrequency, notes };
+        const bucket = { title, startDate, endDate, goalAmount, savedAmount, reminderFrequency, notes, createdAt };
 
         return database.ref(`users/${uid}/buckets`).push(bucket).then((ref) => {
         dispatch(addBucket({
