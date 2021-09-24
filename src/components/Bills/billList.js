@@ -1,15 +1,22 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import BillItem from './billItem';
 import moment from 'moment'
 import { startEditBill, startRemoveBill } from '../../Actions/bills'
+import None from './Options/none';
+import Category from './Options/category';
+import Amount from './Options/amount';
+import DueDate from './Options/dueDate'
+import Paid from './Options/paid';
+import NotPaid from './Options/notPaid'
 
 class BillList extends Component {
   constructor(props){
     super(props)
 
     this.state = {
-      currentDate: moment().format().slice(0,10)
+      currentDate: moment().format().slice(0,10),
+      filterOption: 'none',
+      filterSelect: 'none'
     }
   }
 
@@ -79,7 +86,78 @@ class BillList extends Component {
     this.updatePaidIfSetToRecur()
   }
 
+  onFilterOptionChange = (e) => {
+    const filterOption = e.target.value
+    this.setState(() => ({ filterOption: filterOption }))
+    this.selectFilter(this.state.filterOption)
+  }
+
+  onFilterSelectChange = (e) => {
+    const filterSelect = e.target.value
+    this.setState(() => ({ filterSelect: filterSelect }))
+  }
+
+  selectFilter = (filterOption) => {
+    if (filterOption === 'amount'){
+      return (
+        <div>
+            <label for="amountOptions">Amount Options</label>
+            <select name="amountOptions" id="amountOptions" onChange={this.onFilterSelectChange} value={this.state.filterSelect}>
+                <option value="none">None</option>
+                <option value="increasing">Increasing</option>
+                <option value="decreasing">Decreasing</option>
+            </select>
+        </div>        
+      )
+    } else if (filterOption === 'dueDate') {
+      return (
+        <div>
+            <label for="dueDateOptions">Due Date Options</label>
+            <select name="dueDateOptions" id="dueDateOptions" onChange={this.onFilterSelectChange} value={this.state.filterSelect}>
+                <option value="none">None</option>
+                <option value="increasing">Increasing</option>
+                <option value="decreasing">Decreasing</option>
+            </select>
+        </div>        
+      )
+    } else if (filterOption === 'category') {
+      return (
+        <div>
+            <label for="categoryOptions">Category Options</label>
+            <select name="categoryOptions" id="categoryOptions" onChange={this.onFilterSelectChange} value={this.state.filterSelect}>
+                <option value="none">None</option>
+                <option value="rent">Rent/Mortagage</option>
+                <option value="utilities">Utilities</option>
+                <option value="subscriptions">Subscriptions</option>
+                <option value="phone">Phone</option>
+                <option value="other">Other</option>
+            </select>
+        </div>        
+      )
+    }
+  }
+
+  displayFilter = (filterOption, filterSelect) => {
+    console.log('DISPLAY FILTER', filterOption, filterSelect)
+    if (filterOption === 'none') {
+      return <None />
+    } else if (filterOption === 'category') {
+        return <Category filterBy={filterSelect} x={filterSelect}/>
+    } else if (filterOption === 'amount') {
+        return <Amount filterBy={filterSelect} x={filterSelect}/>
+      
+    } else if (filterOption === 'dueDate') {
+        return <DueDate filterBy={filterSelect} x={filterSelect}/>
+    } else if (filterOption === 'paid') {
+      return <Paid filterBy={['paid', 'none']}/>
+    } else if (filterOption === 'notPaid') {
+      return <NotPaid filterBy={['notPaid', 'none']}/>
+    }
+  }
+
   render() {
+    console.log(this.state)
+
     return (
       <div>
         <div style={{display:'inline-flex', width:'100%'}}>
@@ -90,6 +168,20 @@ class BillList extends Component {
           <h5>Paid</h5>
         </div>
         <div>
+          <label for="filterOption">Filter Option</label>
+            <select name="filterOption" id="filterOption" onChange={this.onFilterOptionChange} value={this.state.filterOption}>
+                <option value="none">None</option>
+                <option value="amount">Amount</option>
+                <option value="paid">Paid</option>
+                <option value="notPaid">Not Paid</option>
+                <option value="dueDate">Due Date</option>
+                <option value="category">Category</option>
+            </select>
+        </div>
+        <div>
+          {this.selectFilter(this.state.filterOption)}
+        </div>
+        <div>
           {
             this.props.bills.length === 0 ? (
               <div>
@@ -97,10 +189,10 @@ class BillList extends Component {
               </div>
               
             ) : (
-                this.props.bills.map((bill) => {
-                  return <BillItem key={bill.id} {...bill} />;
-                })
-              )
+              <div>
+                {this.displayFilter(this.state.filterOption, this.state.filterSelect)}
+              </div>
+            )
           }
         </div>
       </div>

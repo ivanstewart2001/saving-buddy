@@ -38,40 +38,47 @@ const orderDueDate = (inputArray, filterBy) => {
     }
 }
 
-export default filterBills = (filterBy, bills) => {
-    filteredArray = []
-    filter1 = filterBy[0]
-    filter2 = filterBy[1]
+const filterBills = (filterBy, bills) => {
+    const filteredArray = []
+    const filter1 = filterBy[0]
+    const filter2 = filterBy[1]
+
+    console.log(filter1, filter2)
 
     bills.map((bill) => {
         if (filter1 === 'paid') {
             if (bill.paid === 'yes') {
                 filteredArray.push(bill)
             }
-        } else if (filter1 === 'not paid') {
+        } else if (filter1 === 'notPaid') {
             if (bill.paid === 'no') {
                 filteredArray.push(bill)
             }
         } else if (filter1 === 'category') {
-            if (filter2 === 'rent' && bill.category === 'rent') {
+            if (filter2 === 'rent' && bill.category === 'Rent') {
                 filteredArray.push(bill)
-            } else if (filter2 === 'utilities' && bill.category === 'utilities') {
+            } else if (filter2 === 'utilities' && bill.category === 'Utilities') {
                 filteredArray.push(bill)
-            } else if (filter2 === 'subscriptions' && bill.category === 'subscriptions') {
+            } else if (filter2 === 'subscriptions' && bill.category === 'Subscriptions') {
                 filteredArray.push(bill)
-            } else if (filter2 === 'phone' && bill.category === 'phone') {
+            } else if (filter2 === 'phone' && bill.category === 'Phone') {
                 filteredArray.push(bill)
-            }  else if (filter2 === 'other' && bill.category === 'other') {
+            }  else if (filter2 === 'other' && bill.category === 'Other') {
                 filteredArray.push(bill)
             }
         }
     })
 
-    if (filter1 === 'due date'){
+    console.log(filteredArray)
+
+    if (filter1 === 'dueDate'){
         return orderDueDate(bills, filter2)
     } else if (filter1 === 'amount') {
+        console.log(orderAmount(bills, filter2))
         return orderAmount(bills, filter2)
     } else {
         return filteredArray
     }
 }
+
+export default filterBills

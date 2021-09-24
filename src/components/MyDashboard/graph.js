@@ -62,7 +62,6 @@ class DashBoardGraph extends Component {
         </div>        
       )
     }
-
   }
 
   displayGraph = (graphSelect) => {
@@ -80,6 +79,7 @@ class DashBoardGraph extends Component {
       return <ExpensesPerMonth />
     }
   }
+
 
   render(){
     return (
