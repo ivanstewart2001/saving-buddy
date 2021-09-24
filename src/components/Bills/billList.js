@@ -65,16 +65,19 @@ class BillList extends Component {
         if((bill.frequency === 'weekly') && (this.hasSevenDaysPassed(this.formatDueDate(bill.dueDate)))){
           let tempBill = Object.assign({}, bill)
           tempBill.paid = 'no'
+          tempBill.dueDate = moment(tempBill.dueDate).add(7, 'days')
           this.props.startEditBill(bill.id, tempBill)
         }
         if((bill.frequency === 'biWeekly') && (this.hasFourteenDaysPassed(this.formatDueDate(bill.dueDate)))){
           let tempBill = Object.assign({}, bill)
           tempBill.paid = 'no'
+          tempBill.dueDate = moment(tempBill.dueDate).add(14, 'days')
           this.props.startEditBill(bill.id, tempBill)
         }
         if((bill.frequency === 'monthly') && (this.hasThirtyDaysPassed(this.formatDueDate(bill.dueDate)))){
           let tempBill = Object.assign({}, bill)
           tempBill.paid = 'no'
+          tempBill.dueDate = moment(tempBill.dueDate).add(30, 'days')
           this.props.startEditBill(bill.id, tempBill)
         }
       }
