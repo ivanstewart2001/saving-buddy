@@ -43,8 +43,6 @@ const filterBills = (filterBy, bills) => {
     const filter1 = filterBy[0]
     const filter2 = filterBy[1]
 
-    console.log(filter1, filter2)
-
     bills.map((bill) => {
         if (filter1 === 'paid') {
             if (bill.paid === 'yes') {
@@ -69,12 +67,9 @@ const filterBills = (filterBy, bills) => {
         }
     })
 
-    console.log(filteredArray)
-
     if (filter1 === 'dueDate'){
         return orderDueDate(bills, filter2)
     } else if (filter1 === 'amount') {
-        console.log(orderAmount(bills, filter2))
         return orderAmount(bills, filter2)
     } else {
         return filteredArray

@@ -138,14 +138,12 @@ class BillList extends Component {
   }
 
   displayFilter = (filterOption, filterSelect) => {
-    console.log('DISPLAY FILTER', filterOption, filterSelect)
     if (filterOption === 'none') {
       return <None />
     } else if (filterOption === 'category') {
         return <Category filterBy={filterSelect} x={filterSelect}/>
     } else if (filterOption === 'amount') {
         return <Amount filterBy={filterSelect} x={filterSelect}/>
-      
     } else if (filterOption === 'dueDate') {
         return <DueDate filterBy={filterSelect} x={filterSelect}/>
     } else if (filterOption === 'paid') {
@@ -156,8 +154,6 @@ class BillList extends Component {
   }
 
   render() {
-    console.log(this.state)
-
     return (
       <div>
         <div style={{display:'inline-flex', width:'100%'}}>
