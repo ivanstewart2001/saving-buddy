@@ -1,19 +1,3 @@
-// id(pin): "-MkJshiuG7Fomc7asrd9"
-// title(pin): "BIll1"
-// dueDate(pin): "Wed Sep 29 2021"
-// amount(pin): 100
-// frequency(pin): "weekly"
-// reminderFrequency(pin): "weekly"
-// category(pin): "Subscriptions"
-// paid(pin): "no"
-// notes(pin): ""
-// createdAt(pin): "2021-09-23"
-
-//amount: ['amount', 'increasing']
-//paid: ['paid', None]
-//categpry: ['category', 'rent']
-//dueDate: ['due date', 'increasing']
-
 const orderAmount = (inputArray, filterBy) => {
     inputArray.sort((a,b) => { //Least to Greatest
       return a.amount-b.amount
