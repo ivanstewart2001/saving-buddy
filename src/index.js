@@ -7,6 +7,7 @@ import { login, logout } from './Actions/auth';
 import { startSetExpenses } from './Actions/expenses';
 import { startSetBills } from './Actions/bills';
 import { startSetBuckets } from './Actions/buckets'
+import { startSetIncome } from './Actions/income';
 import './Firebase/firebase'
 import { firebase } from './Firebase/firebase';
 import LoadingPage from './assets/loadingPage'
@@ -37,6 +38,7 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(login(user.uid))
     store.dispatch(startSetBills())
     store.dispatch(startSetBuckets())
+    store.dispatch(startSetIncome())
     store.dispatch(startSetExpenses()).then(() => {
       renderApp()
       if (history.location.pathname === '/') {
