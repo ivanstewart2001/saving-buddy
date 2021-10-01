@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import BillReminders from "./billReminders";
+import BucketReminders from "./bucketReminders";
 
 class MyOverview extends Component {
   render(){
@@ -6,8 +8,8 @@ class MyOverview extends Component {
       <div>
           <h4>My Overview</h4>
           <div>
-            <p><strong>Reminders</strong></p>
-            <p><strong>My Buckets</strong></p>
+            <BillReminders />
+            <BucketReminders/>
             <p><strong>Cash Flow</strong></p>
           </div>
       </div>
