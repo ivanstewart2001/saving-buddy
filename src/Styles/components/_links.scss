@@ -1,0 +1,23 @@
+.link {
+    text-decoration: none;
+    outline: none;
+    color: white;
+    width: 12.5%; 
+    text-align: center;
+    padding: 5px;
+    
+}
+
+.link:hover {
+    text-decoration: blue;
+}
+
+.savingBuddyLink {
+    @extend .link;
+    color: #d3d3d3
+}
+
+.borders {
+    border-right: 4px solid #d3d3d3;
+    font-size: 34px;
+}

@@ -2,48 +2,49 @@ import React from "react";
 import { startLogout } from "../../Actions/auth";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+//style={{width:'14.28%', textAlign:'center', padding: '5px'}}
+// /className="header" style={{bordersCollapse:'separate', bordersSpacing:'0 15px', width:'100%'}}
 export const Header = ({ startLogout }) => (
-    <table style={{borderCollapse:'separate', borderSpacing:'0 15px', width:'100%'}}>
+    <table className="header">
       <tbody>
         <tr>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <Link to="/myDashboard">
-                <h1>Saving Buddy</h1>
+            <td>
+              <Link to="/myDashboard" className="savingBuddyLink">
+                <h1 className="borders">Saving Buddy</h1>
               </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <Link to="/bills">
-                <h1>Bills</h1>
+            <td>
+              <Link to="/bills" className="link">
+                <h1 className="borders">Bills</h1>
               </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-            <Link to="/buckets">
-              <h1>Buckets</h1>
+            <td>
+            <Link to="/buckets" className="link">
+              <h1 className="borders">Buckets</h1>
             </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <Link to="/calendar">
-                <h1>Calendar</h1>
+            <td>
+              <Link to="/calendar" className="link">
+                <h1 className="borders">Calendar</h1>
               </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <Link to="/expenses">
-                <h1>Expenses</h1>
+            <td>
+              <Link to="/expenses" className="link">
+                <h1 className="borders">Expenses</h1>
               </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <Link to="/income">
-                <h1>Income</h1>
+            <td>
+              <Link to="/income" className="link">
+                <h1 className="borders">Income</h1>
               </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <Link to="/tips">
-                <h1>Tips</h1>
+            <td>
+              <Link to="/tips" className="link">
+                <h1 className='borders' >Tips</h1>
               </Link>
             </td>
-            <td style={{width:'14.28%', textAlign:'center', padding: '5px'}}>
-              <button onClick={startLogout} style={{width:'200px', height:'50px'}}>Logout</button>
+            <td >
+              <button className="logoutbutton" onClick={startLogout}>Logout</button>
             </td>
         </tr>
       </tbody>

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { login, logout } from './Actions/auth';
@@ -13,6 +12,7 @@ import { firebase } from './Firebase/firebase';
 import LoadingPage from './assets/loadingPage'
 import configureStore from './Store/configureStore';
 import AppRouter, { history } from './components/Routes/AppRouter';
+import "./Styles/styles.scss"
 
 const store = configureStore()
 
