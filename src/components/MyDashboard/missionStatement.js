@@ -4,7 +4,7 @@ class MissionStatement extends Component {
   render(){
     return (
       <center>
-        <h3 className="test">Helping You Save Every Step of the Way</h3>
+        <h3>Helping You Save Every Step of the Way</h3>
       </center>
     )
   }
