@@ -41,11 +41,13 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(startSetIncome())
     store.dispatch(startSetExpenses()).then(() => {
       renderApp()
+      console.log('logging in')
       if (history.location.pathname === '/') {
         history.push('/myDashboard')
       }
     })
   } else {
+    console.log('logging out')
     store.dispatch(logout())
     renderApp()
     history.push('/')
