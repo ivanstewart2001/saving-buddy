@@ -1,0 +1,22 @@
+
+.overview{
+    color: #00416a;
+    font-size: 30px;
+}
+
+
+
+.missionStatement{
+    text-align: left;
+    
+}
+
+.reminderBorder{
+    border-left: 6px solid  #ccc !important;
+    color: #00416a;
+    background-color: #95C7F5;
+    text-indent: 10px;
+    border-color: #00416a !important;
+    padding: 0.01em, 16px;
+}
+
