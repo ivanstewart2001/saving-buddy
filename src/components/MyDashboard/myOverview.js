@@ -6,7 +6,7 @@ class MyOverview extends Component {
   render(){
     return (
       <div>
-          <h4>My Overview</h4>
+          <h4 className = "overview"> My Overview</h4>
           <div>
             <BillReminders />
             <BucketReminders/>
