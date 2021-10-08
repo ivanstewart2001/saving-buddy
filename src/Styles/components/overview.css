@@ -1,18 +1,14 @@
-
 .overview{
     color: #00416a;
     font-size: 30px;
+    margin-top: 5px;
 }
 
-
-
-
-
 .reminderBorder{
-    border-left: 6px solid  #ccc !important;
+    /* border-left: 6px solid  #ccc !important; */
     color: #00416a;
     background-color: #95C7F5;
-    text-indent: 10px;
+    text-indent: 5px;
     border-color: #00416a !important;
     padding: 0.01em, 16px;
 }

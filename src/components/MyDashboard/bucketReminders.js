@@ -41,7 +41,7 @@ class BucketReminders extends Component{
     render(){
         return (
             <div>
-                <h5 className= 'reminderBorder'>Bucket Reminders</h5>
+                <h5 className= 'reminderBorder'><i class="bi bi-bucket"></i> Bucket Reminders</h5>
                 {
                     this.props.buckets.length === 0 ? (
                         <p>No reminders</p>

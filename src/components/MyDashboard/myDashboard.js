@@ -7,6 +7,8 @@ class MyDashboard extends Component {
   render(){
     return (
       <div>
+        <h4 className = "overview"> My Overview</h4>
+        <hr/>
         <DashboardGraph />
         <hr />
         <MyOverview />

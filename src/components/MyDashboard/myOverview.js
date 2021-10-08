@@ -7,12 +7,9 @@ class MyOverview extends Component {
   render(){
     return (
       <div>
-          <h4 className = "overview"> My Overview</h4>
-          <div>
-            <BillReminders />
-            <BucketReminders/>
-            <Cashflow/>
-          </div>
+          <BillReminders />
+          <BucketReminders/>
+          <Cashflow/>
       </div>
     )
   }
