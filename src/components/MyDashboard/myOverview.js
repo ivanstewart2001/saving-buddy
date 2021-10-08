@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import BillReminders from "./billReminders";
 import BucketReminders from "./bucketReminders";
+import Cashflow from "./cashflow";
 
 class MyOverview extends Component {
   render(){
@@ -10,7 +11,7 @@ class MyOverview extends Component {
           <div>
             <BillReminders />
             <BucketReminders/>
-            <p><strong>Cash Flow</strong></p>
+            <Cashflow/>
           </div>
       </div>
     )

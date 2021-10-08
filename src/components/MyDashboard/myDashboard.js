@@ -7,7 +7,6 @@ class MyDashboard extends Component {
   render(){
     return (
       <div>
-        <MissionStatement/>
         <DashboardGraph />
         <hr />
         <MyOverview />

@@ -1,51 +1,58 @@
-// import React, {Component} from 'react'
-// import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
 
 
-// class CashFlow extends Component {
-// constructor(props){
-//     super(props)
+class CashFlow extends Component {
+    constructor(props){
+        super(props)
 
-// }
+    }
 
-// incomeTotal = () => {
-//     const totalIncome =  0
-//     this.props.income.map((income) => {
-//         const totalIncome = ++income.amount
-//     })
-//     return totalIncome
-// }
+    incomeTotal = () => {
+        let totalIncome =  0
+        this.props.income.map((income) => {
+            totalIncome += income.amount/100
+        })
+        return totalIncome
+    }
 
-// expenseTotal = () => {
-//     const totalExpense =  0
-//     this.props.expenses.map((expense) => {
-//         const totalExpense = ++expense.amount
-//     })
-//     return totalExpense
-// }
+    expenseTotal = () => {
+        let totalExpense =  0
+        this.props.expenses.map((expense) => {
+            totalExpense += expense.amount/ 100
+        })
+        this.props.bills.map((bill) => {
+            if(bill.paid === 'yes') {
+                totalExpense += bill.amount/100
+            }
+               
+        }
+        )
+        return totalExpense
+    }
 
-// // cashflow = () => {
-// //      const cashflow = incomeTotal() - expenseTotal()
-// //      return <p>Total: {cashflow} </p>
-// //      }
+    cashflow = () => {
+        const cashflow = this.incomeTotal() - this.expenseTotal()
+        console.log(cashflow)
+        return cashflow
+        }
 
-// render(){
+    render(){
 
-//     const {data: chartData} = this.state
-//     return(
-//         <div>
-//             <h5 className =  'reminderBorder'>Cash Flow</h5>
+        return(
+            <div>
+                <h5 className =  'reminderBorder'>Cash Flow</h5>
+                <p>Your cash flow is ${this.cashflow()}</p>
 
+            </div>
+        )
+    }
+}
 
-//         </div>
-//     )
-// }
-// }
+const mapStateToProps = (state) => {
+    return{
+        expenses: state.expenses, income: state.income, bills: state.bills
+    }
 
-// const mapStateToProps = (state) => {
-//     return{
-//         expenses: state.expenses, income: state.income
-//     }
-
-// }
-// export default connect(mapStateToProps)(CashFlow)
+}
+export default connect(mapStateToProps)(CashFlow)
