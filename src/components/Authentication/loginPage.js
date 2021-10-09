@@ -13,13 +13,13 @@ export const LoginPage = ({ startLogin }) => {
     return (
         <div>
             <div>
-                {/* <div styles={{textalign: 'center'}}>
+                <div styles={{textalign: 'center'}}>
                     <AliceCarousel autoPlay autoPlayInterval="3000">
                         <img className='center' src={image1} style={{width: '70%', height: '70%'}} alt=""/>
                         <img className='center' src={image2} style={{width: '70%', height: '70%'}} alt=""/>
                         <img className='center' src={image3} style={{width: '70%', height: '70%'}} alt=""/>
                     </AliceCarousel>
-                </div> */}
+                </div>
                 <h1 className='savingbuddyBorder'>Saving Buddy</h1>
                 <MissionStatement/>
 
