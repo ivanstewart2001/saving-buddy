@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { startEditBucket } from '../../Actions/buckets'
 import { connect } from 'react-redux';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+// import ProgressBar from 'react-bootstrap/ProgressBar'
 import { BsFillTrashFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import BucketModal, {send} from './bucketModal'
@@ -59,10 +59,10 @@ class BucketItem extends Component {
                     </div>
                 </div>
 
-                <div>
+                {/* <div>
                     <ProgressBar max={this.state.goalAmount/100} now={this.state.savedAmount/100} label={`$${this.state.savedAmount/100}`} />
                     <p style={{marginLeft:'90%'}}>Total: ${this.state.goalAmount/100}</p>
-                </div>
+                </div> */}
                 {
                     this.state.openModal === true ?
                         <div onMouseOut={this.show}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+// import ProgressBar from 'react-bootstrap/ProgressBar'
 import { Link } from 'react-router-dom';
 import { startEditBucket, startSetBuckets } from '../../Actions/buckets'
 import { connect } from 'react-redux';
@@ -99,10 +99,10 @@ class BucketModal extends Component {
                         <p style={{marginLeft:'70%'}}>{this.state.endDate}</p>
                     </div>
                 </div>
-                <div>
+                {/* <div>
                   <ProgressBar max={this.state.goalAmount/100} now={this.state.savedAmount/100} label={`$${this.state.savedAmount/100}`} />
                   <p style={{marginLeft:'90%'}}>Total: ${this.state.goalAmount/100}</p>
-                </div>
+                </div> */}
                 <div style={{display:'flex', height:'75%'}}>
                   <div style={{border:'1px solid blue', width:'50%', height:'75%'}}>
                     <h4>Add To Bucket</h4>
