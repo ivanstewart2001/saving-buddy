@@ -43,7 +43,7 @@ class BillReminders extends Component {
     render(){
         return (
             <div>
-                <h5 className =  'reminderBorder'><i className= "bi bi-cash"></i> Bill Reminders</h5>
+                <h5>Bill Reminders</h5>
                 {
                     this.props.bills.length === 0 ? (
                         <p>No reminders</p>

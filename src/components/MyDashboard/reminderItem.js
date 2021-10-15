@@ -24,7 +24,6 @@ const ReminderItem = (props) => {
     console.log(props)
     return (
         <div>
-            
             {
                 props.type === 'bill' ? (
                     conditions(props.daysUntilDue, props.title)

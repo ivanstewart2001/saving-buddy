@@ -83,23 +83,22 @@ class DashBoardGraph extends Component {
 
   render(){
     return (
-      <div>
-        <div className='graphOptions'> 
+      <center>
+        <div>
           <label for="graphOption">Graph Option</label>
-            <select  name="graphOption" id="graphOption" onChange={this.onGraphOptionChange} value={this.state.graphOption}>
+            <select name="graphOption" id="graphOption" onChange={this.onGraphOptionChange} value={this.state.graphOption}>
                 <option value="bills">Bills</option>
                 <option value="buckets">Buckets</option>
                 <option value="expenses">Expenses</option>
             </select>
         </div>
-        <br/>
-        <div className='graphOptions'>
+        <div>
           {this.selectGraph(this.state.graphOption)}
         </div>
         <div style={{fontSize: '150px', marginTop:'3%', overflowX:'scroll', height:'400px', border:'1px solid black'}}>
           {this.displayGraph(this.state.graphSelect)}
         </div>
-      </div>
+      </center>
     )
   }
 }
