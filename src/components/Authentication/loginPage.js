@@ -6,7 +6,7 @@ export const LoginPage = ({ startLogin }) => {
     return (
         <div>
             <div>
-                <h1>Saving Buddy</h1>
+                <h1>Saving Buddy.</h1>
                 <button onClick={startLogin}>Login with Google</button>
             </div>
         </div>
